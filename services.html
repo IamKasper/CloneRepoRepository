@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - My Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .service-card ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">MyWebsite</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Our Services</h1>
+        <p>Comprehensive solutions tailored to your needs</p>
+    </div>
+
+    <div class="content">
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Web Development</h3>
+                <p>Custom websites built with the latest technologies to meet your business objectives.</p>
+                <ul>
+                    <li>Responsive Design</li>
+                    <li>E-commerce Solutions</li>
+                    <li>Content Management Systems</li>
+                    <li>Progressive Web Apps</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>Mobile Development</h3>
+                <p>Native and cross-platform mobile applications for iOS and Android.</p>
+                <ul>
+                    <li>iOS Development</li>
+                    <li>Android Development</li>
+                    <li>React Native Apps</li>
+                    <li>App Maintenance</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>UI/UX Design</h3>
+                <p>Beautiful, intuitive interfaces that users love to interact with.</p>
+                <ul>
+                    <li>User Research</li>
+                    <li>Wireframing & Prototyping</li>
+                    <li>Visual Design</li>
+                    <li>Usability Testing</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>Digital Marketing</h3>
+                <p>Strategic marketing solutions to grow your online presence.</p>
+                <ul>
+                    <li>SEO Optimization</li>
+                    <li>Social Media Marketing</li>
+                    <li>Content Strategy</li>
+                    <li>Analytics & Reporting</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>Cloud Solutions</h3>
+                <p>Scalable cloud infrastructure and deployment services.</p>
+                <ul>
+                    <li>Cloud Migration</li>
+                    <li>DevOps Services</li>
+                    <li>Server Management</li>
+                    <li>Security & Compliance</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>Consulting</h3>
+                <p>Expert guidance to help you make informed technology decisions.</p>
+                <ul>
+                    <li>Technology Strategy</li>
+                    <li>Digital Transformation</li>
+                    <li>Process Optimization</li>
+                    <li>Training & Support</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to Get Started?</h2>
+            <p>Let's discuss how we can help bring your project to life</p>
+            <a href="contact.html" class="btn">Contact Us Today</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 MyWebsite. All rights reserved.</p>
+    </footer>
+</body>
+</html>
