@@ -75,9 +75,28 @@
         .btn:active {
             transform: translateY(0);
         }
+
+        .home-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .home-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
     </style>
 </head>
 <body>
+    <a href="index.html" class="home-link">← Home</a>
     <div class="container">
         <h1>Joke Generator</h1>
         <div class="joke-display empty" id="jokeDisplay">Click the button to hear a joke!</div>
