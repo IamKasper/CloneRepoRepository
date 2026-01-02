@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Memory</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .game-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: #667eea;
+            margin-bottom: 2rem;
+        }
+
+        .level {
+            color: #764ba2;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .number-display {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #667eea;
+            margin: 2rem 0;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.5rem;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #764ba2;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 0.5rem;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .message {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .correct {
+            color: #2ecc71;
+        }
+
+        .incorrect {
+            color: #e74c3c;
+        }
+
+        @media (max-width: 768px) {
+            .game-card {
+                padding: 2rem 1rem;
+            }
+            .number-display {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html">← Back to Games</a>
+            <a href="index.html">🧠 BenchmarkGames</a>
+        </div>
+    </nav>
+
+    <div class="game-container">
+        <div class="game-card">
+            <h2>Number Memory</h2>
+            <div class="level">Level: <span id="level">1</span></div>
+            <div class="number-display" id="numberDisplay">
+                <p class="message">Ready to start?</p>
+            </div>
+            <div id="controls">
+                <button class="btn" onclick="startGame()">Start</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let level = 1;
+        let currentNumber;
+        let state = 'start'; // start, showing, input, result
+
+        const numberDisplay = document.getElementById('numberDisplay');
+        const levelDisplay = document.getElementById('level');
+        const controls = document.getElementById('controls');
+
+        function startGame() {
+            level = 1;
+            levelDisplay.textContent = level;
+            showNumber();
+        }
+
+        function showNumber() {
+            state = 'showing';
+            currentNumber = generateNumber(level);
+            numberDisplay.textContent = currentNumber;
+            controls.innerHTML = '';
+
+            setTimeout(() => {
+                showInput();
+            }, Math.max(1000, level * 500));
+        }
+
+        function generateNumber(digits) {
+            let number = '';
+            for (let i = 0; i < digits; i++) {
+                number += Math.floor(Math.random() * 10);
+            }
+            return number;
+        }
+
+        function showInput() {
+            state = 'input';
+            numberDisplay.innerHTML = '<p class="message">What was the number?</p>';
+            controls.innerHTML = `
+                <input type="text" id="answer" placeholder="Enter the number" autofocus>
+                <br>
+                <button class="btn" onclick="checkAnswer()">Submit</button>
+            `;
+
+            document.getElementById('answer').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') checkAnswer();
+            });
+        }
+
+        function checkAnswer() {
+            const answer = document.getElementById('answer').value;
+
+            if (answer === currentNumber) {
+                numberDisplay.innerHTML = '<p class="message correct">✓ Correct!</p>';
+                level++;
+                levelDisplay.textContent = level;
+                controls.innerHTML = '<button class="btn" onclick="showNumber()">Next Level</button>';
+            } else {
+                numberDisplay.innerHTML = `
+                    <p class="message incorrect">✗ Incorrect!</p>
+                    <p style="font-size: 1rem; color: #666;">The number was: ${currentNumber}</p>
+                    <p style="font-size: 1rem; color: #666;">You reached level ${level}</p>
+                `;
+                controls.innerHTML = '<button class="btn" onclick="startGame()">Try Again</button>';
+            }
+        }
+    </script>
+</body>
+</html>
