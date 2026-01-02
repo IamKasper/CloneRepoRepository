@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Human Benchmark Games - Portfolio</title>
+    <title>Home - My Website</title>
     <style>
         * {
             margin: 0;
@@ -12,37 +12,19 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            color: #333;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
         }
 
         nav {
-            background: rgba(0, 0, 0, 0.2);
+            background-color: #333;
             padding: 1rem 0;
-            backdrop-filter: blur(10px);
-        }
-
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav .logo {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
         }
 
         nav ul {
             list-style: none;
             display: flex;
+            justify-content: center;
             gap: 2rem;
         }
 
@@ -50,194 +32,43 @@
             color: white;
             text-decoration: none;
             padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: background 0.3s ease;
         }
 
         nav ul li a:hover,
         nav ul li a.active {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+            background-color: #555;
+            border-radius: 5px;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .game-card {
-            background: white;
-            border-radius: 15px;
             padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
         }
 
-        .game-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-
-        .game-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-            color: white;
-        }
-
-        .game-card h3 {
-            color: #667eea;
+        h1 {
+            color: #333;
             margin-bottom: 1rem;
-            font-size: 1.5rem;
-            text-align: center;
         }
 
-        .game-card p {
+        p {
             color: #666;
-            text-align: center;
-            line-height: 1.6;
-        }
-
-        .game-card .play-btn {
-            display: block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            text-align: center;
-            margin-top: 1.5rem;
-            font-weight: bold;
-            transition: transform 0.3s ease;
-        }
-
-        .game-card .play-btn:hover {
-            transform: scale(1.05);
-        }
-
-        footer {
-            background: rgba(0, 0, 0, 0.2);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 4rem;
-            backdrop-filter: blur(10px);
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            nav .container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 0.5rem;
-                text-align: center;
-            }
+            margin-bottom: 1rem;
         }
     </style>
 </head>
 <body>
     <nav>
-        <div class="container">
-            <a href="index.html" class="logo">🧠 BenchmarkGames</a>
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </div>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
     </nav>
 
-    <div class="hero">
-        <h1>Human Benchmark Games</h1>
-        <p>Test your cognitive abilities with these fun and challenging minigames</p>
-    </div>
-
     <div class="container">
-        <div class="games-grid">
-            <div class="game-card">
-                <div class="game-icon">⚡</div>
-                <h3>Reaction Time</h3>
-                <p>Test how quickly you can respond to visual stimuli. Click when the screen turns green!</p>
-                <a href="reaction-time.html" class="play-btn">Play Now</a>
-            </div>
-
-            <div class="game-card">
-                <div class="game-icon">🎯</div>
-                <h3>Aim Trainer</h3>
-                <p>Improve your precision and accuracy by clicking on targets as fast as possible.</p>
-                <a href="aim-trainer.html" class="play-btn">Play Now</a>
-            </div>
-
-            <div class="game-card">
-                <div class="game-icon">🔢</div>
-                <h3>Number Memory</h3>
-                <p>Memorize increasingly longer sequences of numbers and test your memory recall.</p>
-                <a href="number-memory.html" class="play-btn">Play Now</a>
-            </div>
-
-            <div class="game-card">
-                <div class="game-icon">📝</div>
-                <h3>Typing Speed</h3>
-                <p>Measure your typing speed and accuracy with words per minute calculation.</p>
-                <a href="typing-speed.html" class="play-btn">Play Now</a>
-            </div>
-
-            <div class="game-card">
-                <div class="game-icon">🔲</div>
-                <h3>Visual Memory</h3>
-                <p>Remember the pattern of highlighted squares and recreate it from memory.</p>
-                <a href="visual-memory.html" class="play-btn">Play Now</a>
-            </div>
-
-            <div class="game-card">
-                <div class="game-icon">🎵</div>
-                <h3>Sequence Memory</h3>
-                <p>Follow and repeat an increasingly complex sequence of button presses.</p>
-                <a href="sequence-memory.html" class="play-btn">Play Now</a>
-            </div>
-        </div>
+        <h1>Welcome to My Website</h1>
+        <p>This is the home page of my website. Here you can find information about various topics and services we offer.</p>
+        <p>Feel free to explore and learn more about what we do.</p>
     </div>
-
-    <footer>
-        <p>&copy; 2026 Human Benchmark Games. Test your limits!</p>
-    </footer>
 </body>
 </html>
